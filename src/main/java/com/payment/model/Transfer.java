@@ -19,7 +19,7 @@ public class Transfer {
     @Column(name = "id")
     private Integer id;
     @Column(name = "value")
-    private Long value;
+    private double value;
     @Column(name = "user_sender")
     private Integer userSender;
     @Column(name = "user_recipient")

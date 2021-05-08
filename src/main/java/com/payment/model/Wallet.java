@@ -16,11 +16,11 @@ public class Wallet {
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "idUSer")
-    @OneToMany(mappedBy = "usuario")
-    private int idUser;
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "id", insertable=false, updatable=false)
+    private User user;
 
     @Column(name = "value")
-    private String value;
+    private Double value;
 
 }

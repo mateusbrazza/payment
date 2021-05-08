@@ -21,7 +21,7 @@ public class User {
     @Column(name = "email")
     private String email;
 
-    @Column(name = "passsword")
+    @Column(name = "password")
     private String password;
 
     @Column(name = "cpf_cnpj")
@@ -34,9 +34,7 @@ public class User {
     @JoinTable(name = "users_roles", joinColumns = @JoinColumn(name = "user_id"),inverseJoinColumns = @JoinColumn(name = "role_id"))
     List<Role> role;
 
-    @ManyToOne
-    @JoinColumn(name = "id", insertable=false, updatable=false)
-    @Column(name = "wallet")
+    @OneToOne(mappedBy = "user")
     Wallet wallet;
 
 }
