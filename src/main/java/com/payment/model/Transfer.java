@@ -1,12 +1,10 @@
 package com.payment.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Getter
@@ -16,15 +14,30 @@ import java.time.LocalDateTime;
 public class Transfer {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Integer id;
+    @JsonIgnore
+    private Long id;
+
     @Column(name = "value")
     private double value;
+
     @Column(name = "user_sender")
-    private Integer userSender;
+    @JsonIgnore
+    private String userSender;
+
     @Column(name = "user_recipient")
-    private Integer userRecipient;
+    @JsonIgnore
+    private String userRecipient;
+
+    @Column(name = "id_sender")
+    private Long idSender;
+
+    @Column(name = "id_recipient")
+    private Long idRecipient;
+
     @Column(name = "dateTransfer")
+    @JsonIgnore
     private LocalDateTime dateTransfer = LocalDateTime.now();
 
 }

@@ -1,6 +1,7 @@
 package com.payment.controller;
 
 import com.payment.dto.AuthTransferDTO;
+import com.payment.dto.RegisterDTO;
 import com.payment.model.Transfer;
 import com.payment.model.User;
 import com.payment.service.UserService;
@@ -9,28 +10,29 @@ import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 @RestController
-@RequestMapping("/mateus")
+@RequestMapping("/user")
 public class UserController {
 
     @Autowired
     private UserService userService;
 
-    @PostMapping
-    public ResponseEntity<User> save(@RequestBody User user){
-        userService.save(user);
+    @PostMapping("/register")
+    @ApiOperation(value = "user registration with wallet and type of user")
+    public ResponseEntity<RegisterDTO> save(@RequestBody RegisterDTO registerDTO){
+        userService.save(registerDTO);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @PatchMapping
+    @PatchMapping("/transfer")
     @ApiOperation(value = "Performs balance transfer between accounts")
     public ResponseEntity update(@RequestBody Transfer transfer) throws NotFoundException {
         userService.update(transfer);
             return new ResponseEntity<>(HttpStatus.OK);
-
     }
 
 }
