@@ -7,16 +7,15 @@ import com.payment.model.User;
 import com.payment.repository.TransferRepository;
 import com.payment.repository.UserRepository;
 import javassist.NotFoundException;
-import net.bytebuddy.utility.RandomString;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import javax.transaction.Transactional;
-import java.util.Optional;
 
 
 @Service
@@ -28,6 +27,10 @@ public class UserService {
     private TransferRepository transferRepository;
     @Autowired
     private PasswordEncoder passwordEncoder;
+
+
+    private String urlAuth ="wwww";
+
 
     private static final String ACCOUNT_NOT_FOUND = "ACCOUNT_NOT_FOUND";
 
@@ -69,17 +72,10 @@ public class UserService {
     }
 
     public String requestAuth(){
-
         RestTemplate restTemplate = new RestTemplate();
-        String url = "https://run.mocky.io/v3/8fafdd68-a090-496f-8c9a-3442cf30dae6";
-        ResponseEntity<AuthTransferDTO> response = restTemplate.getForEntity(url, AuthTransferDTO.class);
+        ResponseEntity<AuthTransferDTO> response = restTemplate.getForEntity(urlAuth, AuthTransferDTO.class);
         String authTransfer = response.getBody().getMessage();
         return authTransfer;
-
-    }
-
-    public Optional<User> findByEmail(String email) {
-        return this.repository.findByEmail(email);
     }
 
 }

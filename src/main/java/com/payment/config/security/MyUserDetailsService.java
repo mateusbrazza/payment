@@ -25,7 +25,7 @@ public class MyUserDetailsService implements UserDetailsService {
 			return usuario.get();
 		}
 
-		throw new UsernameNotFoundException("Dados inválidos!");
+		throw new UsernameNotFoundException("data invalid!");
 	}
 
 }

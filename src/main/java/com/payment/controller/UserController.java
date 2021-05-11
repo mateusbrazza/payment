@@ -25,14 +25,16 @@ public class UserController {
     @ApiOperation(value = "user registration with wallet and type of user")
     public ResponseEntity<RegisterDTO> save(@RequestBody RegisterDTO registerDTO){
         userService.save(registerDTO);
-        return new ResponseEntity<>(HttpStatus.CREATED);
+        return new ResponseEntity<>(HttpStatus.ACCEPTED);
+
     }
 
     @PatchMapping("/transfer")
     @ApiOperation(value = "Performs balance transfer between accounts")
     public ResponseEntity update(@RequestBody Transfer transfer) throws NotFoundException {
-        userService.update(transfer);
+        if(userService.update(transfer)){
             return new ResponseEntity<>(HttpStatus.OK);
+        }
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
-
 }

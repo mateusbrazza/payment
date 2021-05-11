@@ -2,8 +2,7 @@ package com.payment.controller;
 
 
 
-//import com.payment.service.UserDerailsServiceImpl;
-//import com.payment.util.JwtUtil;
+
 import com.payment.config.security.JwtProvider;
 import com.payment.dto.AuthRequestDTO;
 import com.payment.service.UserService;
@@ -32,7 +31,7 @@ public class AuthenticateController {
 
     @PostMapping("/authenticate")
     @ApiOperation(value = "performs user authentication to use system endpoints")
-    public ResponseEntity<AuthRequestDTO> autenticar(@RequestBody @Valid AuthRequestDTO form) {
+    public ResponseEntity<AuthRequestDTO> authentication(@RequestBody @Valid AuthRequestDTO form) {
         UsernamePasswordAuthenticationToken dadosLogin = form.converter();
         try {
             Authentication authentication = authManager.authenticate(dadosLogin);
@@ -42,10 +41,5 @@ public class AuthenticateController {
             return ResponseEntity.badRequest().build();
         }
     }
-
-    
-
-
-
 
 }
