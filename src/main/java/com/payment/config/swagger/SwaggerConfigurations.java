@@ -33,7 +33,7 @@ public class SwaggerConfigurations {
 				"case payments",
 				"1.0",
 				"Terms of Service",
-				new Contact("Mateus Santana Joaquim", "",
+				new Contact("Mateus Santana Joaquim", "https://www.linkedin.com/in/mateusjoaquim/",
 						"mateusjoaquim@live.com"),
 				"Apache License Version 2.0",
 				"https://www.linkedin.com/in/mateusjoaquim/", new ArrayList<VendorExtension>()
