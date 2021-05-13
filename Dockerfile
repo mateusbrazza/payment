@@ -9,7 +9,7 @@ ENV ADDITIONAL_OPTS=${ADDITIONAL_OPTS}
 
 WORKDIR /opt/spring_boot
 
-COPY /target/spring-boot*.jar payment-systems.jar
+COPY /target/payment-systems*.jar payment-systems.jar
 
 SHELL ["/bin/sh", "-c"]
 
