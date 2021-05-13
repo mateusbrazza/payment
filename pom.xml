@@ -114,6 +114,30 @@
 
 
 		</plugins>
+
 	</build>
+	<profiles>
+		<profile>
+			<id>dev</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<activatedProperties>dev</activatedProperties>
+			</properties>
+		</profile>
+		<profile>
+			<id>prod</id>
+			<properties>
+				<activatedProperties>prod</activatedProperties>
+			</properties>
+		</profile>
+		<profile>
+			<id>homolog</id>
+			<properties>
+				<activatedProperties>homolog</activatedProperties>
+			</properties>
+		</profile>
+	</profiles>
 
 </project>
