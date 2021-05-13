@@ -11,9 +11,10 @@ The following tools were used in this project:
 - [Java](https://www.java.com/pt-BR/)
 - [Spring Boot](https://spring.io/projects/spring-boot)
 - [Spring Data](https://spring.io/projects/spring-data)
-- [Spring Securyt](https://spring.io/projects/spring-security)
+- [Spring Security](https://spring.io/projects/spring-security)
 - [JWT](https://jwt.io/)
 - [Docker](https://jwt.io/)
+- [MySQL](https://www.mysql.com/)
 
 
 
