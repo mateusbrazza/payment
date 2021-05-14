@@ -28,8 +28,8 @@ public class UserService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-
-    private String urlAuth ="wwww";
+    @Value("{payment.app.urlAuth}")
+    private String urlAuth;
 
 
     private static final String ACCOUNT_NOT_FOUND = "ACCOUNT_NOT_FOUND";

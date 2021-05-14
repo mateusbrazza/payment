@@ -1,4 +1,3 @@
-
 FROM openjdk:11
 
 ARG PROFILE
